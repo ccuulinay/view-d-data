@@ -13,7 +13,7 @@ from config import DBConfig
 def authenticate(u, p):
 
     # is_auth, ldap_conn = ldap_service.simple_ldap_auth(u, p)
-    if u == "teens" and p == "teens  123":
+    if u == "teens" and p == "teens":
         return True
     else:
         return False

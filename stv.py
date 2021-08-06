@@ -8,9 +8,9 @@ import base64
 import io
 import os
 
-EP_BASE = "http://127.0.0.1:10086"
+EP_BASE = "http://127.0.0.1:10087"
 LOGIN_EP = f"{EP_BASE}/login"
-SQL_QUERY_EP = f"{EP_BASE}/query"
+SQL_QUERY_EP = f"{EP_BASE}/v1/query"
 
 
 RUN_MODE = os.getenv("ST_RUN_MODE", "dev")
@@ -82,7 +82,7 @@ def authorised_page(run_mode=RUN_MODE):
     # st.write("Welcome.")
     with st.form(key="run_sql_form"):
         sql_statement = st.text_area("SQL to run", "", key=f"input_sql_statement")
-        sql_run_query = st.form_submit_button(label="Login🦈", on_click=cb_run_sql)
+        sql_run_query = st.form_submit_button(label="Run🦈", on_click=cb_run_sql)
 
     if isinstance(st.session_state.run_result, pd.DataFrame):
         st.subheader("Result: ")
